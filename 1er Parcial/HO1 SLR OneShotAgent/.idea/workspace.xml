@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jade.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/APDescription.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiscreetMath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HO1 SLR OneShotAgent.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MTPs-Main-Container.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OneShotAgent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SLR.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/libraries/jade.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/DataSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/DiscreetMath.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/HO1 SLR OneShotAgent.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent$SimpleLinearRegresion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/SLR.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2c6HIiQIlqbkFjUUppdid7vmFYr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/luisvillalobos/Documents/Programacion/TECMM/Simulacion/1er Parcial/HO1 SLR OneShotAgent/out",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propGUI"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="examples.behaviours" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="jade.Boot" />
+      <module name="HO1 SLR OneShotAgent" />
+      <option name="PROGRAM_PARAMETERS" value="-gui slr:examples.behaviours.OneShotAgent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="" />
+      <created>1707425030331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707425030331</updated>
+    </task>
+    <servers />
+  </component>
+</project>
