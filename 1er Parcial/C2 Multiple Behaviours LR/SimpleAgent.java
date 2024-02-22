@@ -29,6 +29,7 @@ import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.core.behaviours.SimpleBehaviour;
 
 import java.util.Scanner;
 
@@ -46,8 +47,10 @@ public class SimpleAgent extends Agent {
 
   protected void setup() {
     System.out.println("Agent "+getLocalName()+" started.");
+
     // Add SimpleBehaviour
-      addBehaviour(new Behaviour(this) {
+      addBehaviour(new SimpleBehaviour() {
+          @Override
           public void action() {
               Scanner s = new Scanner(System.in);
               DataSet dataSet = new DataSet(
@@ -65,7 +68,15 @@ public class SimpleAgent extends Agent {
               double n = s.nextDouble();
               System.out.println("Predict for " + n + ": " + slr.predict(n));
           }
+
+          @Override
+          public boolean done() {
+              return true;
+          }
       });
+
+      // Add GenericBehaviour
+      addBehaviour(new SimpleLinearRegressionBehaviour());
 
       // Add the CyclicBehaviour
     addBehaviour(new CyclicBehaviour(this) {
@@ -76,6 +87,39 @@ public class SimpleAgent extends Agent {
     // Add the generic behaviour
     addBehaviour(new FourStepBehaviour());
   }
+
+    /**
+     * Inner class SimpleLinearRegressionBehaviour
+     */
+    private class SimpleLinearRegressionBehaviour extends Behaviour {
+
+        public void action() {
+            Scanner s = new Scanner(System.in);
+            DataSet dataSet = new DataSet(
+                    new double[]{23,26,30,34,43,48,52,57,58},
+                    new double[]{651,762,856,1063,1190,1298,1421,1440,1518}
+            );
+
+            SLR slr = new SLR(dataSet);
+
+            System.out.println(dataSet);
+            System.out.println("b0: " + slr.getB0());
+            System.out.println("b1: " + slr.getB1());
+            System.out.println("Equation: " + slr.getEquation());
+            System.out.print("Invest to predict: ");
+            double n = s.nextDouble();
+            System.out.println("Predict for " + n + ": " + slr.predict(n));
+        }
+
+        public boolean done() {
+            return true;
+        }
+
+        public int onEnd() {
+            myAgent.doDelete();
+            return super.onEnd();
+        }
+    }    // END of inner class FourStepBehaviour
 
   /**
    * Inner class FourStepBehaviour
@@ -119,6 +163,8 @@ public class SimpleAgent extends Agent {
       return super.onEnd();
     }
   }    // END of inner class FourStepBehaviour
+
+
 }
 
 
