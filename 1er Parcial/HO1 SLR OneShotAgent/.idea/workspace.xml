@@ -5,33 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jade.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APDescription.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiscreetMath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HO1 SLR OneShotAgent.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MTPs-Main-Container.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OneShotAgent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SLR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/libraries/jade.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/DataSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/DiscreetMath.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/HO1 SLR OneShotAgent.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent$SimpleLinearRegresion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/OneShotAgent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HO1 SLR OneShotAgent/examples/behaviours/SLR.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/APDescription.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/luisvillalobos/Documents/Programacion/TECMM/Simulacion/1er Parcial/HO1 SLR OneShotAgent/out",
+    "last_opened_file_path": "/Users/luisvillalobos/Documents/Programacion/TECMM/Simulacion/1er Parcial/HO1 SLR OneShotAgent",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",

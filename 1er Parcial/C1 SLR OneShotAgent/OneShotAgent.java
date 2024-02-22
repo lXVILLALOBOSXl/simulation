@@ -16,8 +16,8 @@ public class OneShotAgent extends Agent {
     public void action() {
       Scanner s = new Scanner(System.in);
       DataSet dataSet = new DataSet(
-              new double[]{43.60,50.44,59.01,66.30,82.36,92.15,100.51,110.06,111.51},
-              new double[]{ 1261.08,1475.28,1657.52,2059.05,2303.76,2512.64,2751.46,2787.67,2939.13}
+              new double[]{23,26,30,34,43,48,52,57,58},
+              new double[]{651,762,856,1063,1190,1298,1421,1440,1518}
       );
 
       SLR slr = new SLR(dataSet);
