@@ -1,20 +1,17 @@
-package examples.behaviours;
+package examples.behaviours.com.data;
 
 import java.util.Arrays;
 
 public class DataSet {
-    private double x[];
+    private double x[][];
     private double y[];
 
-    private int n;
-
-    public DataSet(double[] x, double[] y) {
+    public DataSet(double[][] x, double[] y) {
         this.x = x;
         this.y = y;
-        this.n = (x.length < y.length) ? x.length:y.length;
     }
 
-    public double[]  getX() {
+    public double[][]  getX() {
         return this.x;
     }
 
@@ -22,17 +19,12 @@ public class DataSet {
         return this.y;
     }
 
-    public int getN() {
-        return n;
-    }
 
     @Override
     public String toString() {
-        return "DataSet{" +
+        return "com.data.DataSet{" +
                 "x=" + Arrays.toString(x) +
                 ", y=" + Arrays.toString(y) +
-                ", n=" + n +
                 '}';
     }
-
 }
