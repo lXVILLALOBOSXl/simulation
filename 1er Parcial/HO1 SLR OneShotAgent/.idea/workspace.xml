@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/APDescription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/APDescription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C1 SLR OneShotAgent/out/production/HO1 SLR OneShotAgent/examples/behaviours/MTPs-Main-Container.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/Gradient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/OneShotAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/APDescription.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/MTPs-Main-Container.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/MTPs-Main-Container.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/out/production/C2 Multiple Behaviours LR/examples/behaviours/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/out/production/C2 Multiple Behaviours LR/examples/behaviours/APDescription.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/out/production/C2 Multiple Behaviours LR/examples/behaviours/MTPs-Main-Container.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/out/production/C2 Multiple Behaviours LR/examples/behaviours/MTPs-Main-Container.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,17 +29,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/luisvillalobos/Documents/Programacion/TECMM/Simulacion/1er Parcial/HO1 SLR OneShotAgent",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/luisvillalobos/Documents/Programacion/TECMM/Simulacion/1er Parcial/HO1 SLR OneShotAgent&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/out" />
