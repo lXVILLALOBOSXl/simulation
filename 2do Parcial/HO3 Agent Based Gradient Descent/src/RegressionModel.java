@@ -2,6 +2,10 @@ public abstract class RegressionModel {
     protected double[] beta;
     protected DataSet dataSet;
 
+    private Double determinationCoefficient;
+
+    private Double correlationCoefficient;
+
     public RegressionModel(DataSet data) {
         dataSet = data;
     }
@@ -10,4 +14,16 @@ public abstract class RegressionModel {
 
     public abstract double predict(double x);
 
+    public Double getDeterminationCoefficient() {
+        this.determinationCoefficient = DataAnalysisUtils.calculateDeterminationCoefficient(this.dataSet,this.beta[0],this.beta[1]);
+        return determinationCoefficient;
+    }
+
+    public Double getCorrelationCoefficient() {
+        if (this.determinationCoefficient != null){
+            this.getDeterminationCoefficient();
+        }
+        this.correlationCoefficient = Math.sqrt(this.determinationCoefficient);
+        return this.correlationCoefficient;
+    }
 }

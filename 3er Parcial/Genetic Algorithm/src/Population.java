@@ -26,6 +26,10 @@ public class Population {
 
     public Chromosome getChromosome(int index) { return this.chromosomes.get(index); }
 
+    public List<Chromosome> getChromosomes() {
+        return chromosomes;
+    }
+
     @Override
     public String toString() {
         return chromosomes.stream()

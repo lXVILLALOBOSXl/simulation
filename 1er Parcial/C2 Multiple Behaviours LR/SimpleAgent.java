@@ -36,8 +36,8 @@ public class SimpleAgent extends Agent {
 
                 MultipleLinearRegresion mlr = new MultipleLinearRegresion(dataSetAge);
                 System.out.println("\n" + mlr.equation());
-                System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSetAge));
-                System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSetAge));
+                System.out.println("Determination Coefficient = " + mlr.getDeterminationCoefficient());
+                System.out.println("Correlation Coefficient = " + mlr.getCorrelationCoefficient());
                 double[] toPredict = new double[]{35.0};
                 System.out.println("Prediction for " + Arrays.toString(toPredict) + ": " + mlr.predict(toPredict));
                 toPredict = new double[]{37.0};
@@ -71,8 +71,8 @@ public class SimpleAgent extends Agent {
 
                 MultipleLinearRegresion mlr = new MultipleLinearRegresion(dataSetSalary);
                 System.out.println("\n" + mlr.equation());
-                System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSetSalary));
-                System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSetSalary));
+                System.out.println("Determination Coefficient = " + mlr.getDeterminationCoefficient());
+                System.out.println("Correlation Coefficient = " + mlr.getCorrelationCoefficient());
                 double[] toPredict = new double[]{10.8};
                 System.out.println("Prediction for " + Arrays.toString(toPredict) + ": " + mlr.predict(toPredict));
                 toPredict = new double[]{11.1};
@@ -133,8 +133,8 @@ public class SimpleAgent extends Agent {
 
             MultipleLinearRegresion mlr = new MultipleLinearRegresion(dataSetPopulation);
             System.out.println("\n" + mlr.equation());
-            System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSetPopulation));
-            System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSetPopulation));
+            System.out.println("Determination Coefficient = " + mlr.getDeterminationCoefficient());
+            System.out.println("Correlation Coefficient = " + mlr.getCorrelationCoefficient());
             double[] toPredict = new double[]{1, 2060, 0.15, 2111367, 0, 45.1, 2.24, 562, 56.7, 926613025, 16.87, 10235033990.0};
             System.out.println("Prediction for " + Arrays.toString(toPredict) + ": " + mlr.predict(toPredict));
             toPredict = new double[]{1, 2070, 0.14, 2411367, -532687, 47.1, 2.24, 568, 58.7, 966613025, 17.87, 10335033990.0};

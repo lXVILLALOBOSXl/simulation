@@ -22,8 +22,9 @@ public class OneShotAgent extends Agent {
       System.out.println(dataSet);
       slr.train(70000);
       System.out.println("Equation: " + slr.equation());
-      System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSet));
-      System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSet));
+      System.out.println("Determination Coefficient = " + slr.getDeterminationCoefficient());
+      System.out.println("Correlation Coefficient = " + slr.getCorrelationCoefficient());
+
       double n = 65;
       System.out.println("Predict for " + n + ": " + slr.predict(n));
       n = 78;
@@ -50,8 +51,8 @@ public class OneShotAgent extends Agent {
       System.out.println(dataSet);
       slr.train(70000);
       System.out.println("Equation: " + slr.equation());
-      System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSet));
-      System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSet));
+      System.out.println("Determination Coefficient = " + slr.getDeterminationCoefficient());
+      System.out.println("Correlation Coefficient = " + slr.getCorrelationCoefficient());
       n = 35;
       System.out.println("Predict for " + n + ": " + slr.predict(n));
       n = 37;
@@ -77,8 +78,8 @@ public class OneShotAgent extends Agent {
       System.out.println(dataSet);
       slr.train(70000);
       System.out.println("Equation: " + slr.equation());
-      System.out.println("Correlation Coefficient = " + DataAnalysisUtils.calculateCorrelationCoefficient(dataSet));
-      System.out.println("Determination Coefficient = " + DataAnalysisUtils.calculateDeterminationCoefficient(dataSet));
+      System.out.println("Determination Coefficient = " + slr.getDeterminationCoefficient());
+      System.out.println("Correlation Coefficient = " + slr.getCorrelationCoefficient());
       n = 10.8;
       System.out.println("Predict for " + n + ": " + slr.predict(n));
       n = 11.2;

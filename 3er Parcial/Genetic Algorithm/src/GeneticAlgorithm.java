@@ -20,22 +20,24 @@ public class GeneticAlgorithm {
 
     public RegressionModel train() {
         // Implement the main steps of the genetic algorithm
+
+        // Randomly generate the initial population of chromosomes (or candidate solutions)
         this.initializePopulation();
+        // Define the fitness function for evaluating chromosomes (or candidate solutions)
+        for (Chromosome chromosome: this.population.getChromosomes()){
+            this.calculateFitness(chromosome);
+        }
+        //  Randomly Select Parental Chromosomes
         return null;
     }
 
     private void initializePopulation() {
         this.population.initialize();
 
-        // Calculate the range to choose randomly genes to create chromosomes
-        double[] range = this.dataSet.range();
-        double min = range[0];
-        double max = range[1];
-
         for (int i = 0; i < this.populationSize - 1; i++) {
             double[] genes = new double[]{
-                    RandomGenerator.getRandomDouble(min,max),
-                    RandomGenerator.getRandomDouble(min,max)
+                    RandomGenerator.getRandomDouble(1,200),
+                    RandomGenerator.getRandomDouble(0,50)
             };
             Chromosome chromosome = new Chromosome(genes);
             this.population.addChromosome(chromosome);
@@ -48,7 +50,7 @@ public class GeneticAlgorithm {
 
     private double calculateFitness(Chromosome chromosome) {
         // Implement fitness calculation using dataSet and chromosome's genes
-        return 0.0; // Placeholder
+        return chromosome.calculateFitness(this.dataSet);
     }
 
     private void selectAndReproduce() {
