@@ -1,13 +1,33 @@
-public class RegressionModel {
-    private double[] dependentVariable;
-    private double[][] independentVariables;
+import java.util.Arrays;
 
-    public RegressionModel(double[] dependentVariable, double[][] independentVariables) {
-        this.dependentVariable = dependentVariable;
-        this.independentVariables = independentVariables;
+public class RegressionModel {
+    protected double[] beta;
+
+    private Double determinationCoefficient;
+
+    private Double correlationCoefficient;
+
+    public RegressionModel(double[] beta, Double determinationCoefficient) {
+        this.beta = beta;
+        this.determinationCoefficient = determinationCoefficient;
+        this.correlationCoefficient = Math.sqrt(determinationCoefficient);
     }
 
-    public double predict(double[] inputs) { return 0.0; }
+    public double predict(double x) {
+        return this.beta[0] + (this.beta[1] * x);
+    }
 
-    public double calculateRSquared() { return 0.0; }
+    @Override
+    public String toString() {
+        String equation = "Y = " + this.beta[0] + " + " +  this.beta[1] + "X + e";
+        return equation;
+    }
+
+    public Double getDeterminationCoefficient() {
+        return determinationCoefficient;
+    }
+
+    public Double getCorrelationCoefficient() {
+        return correlationCoefficient;
+    }
 }

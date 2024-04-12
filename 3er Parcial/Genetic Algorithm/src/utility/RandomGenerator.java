@@ -14,4 +14,16 @@ public class RandomGenerator {
         Random random = new Random();
         return min + (max - min) * random.nextDouble();
     }
+
+    public static int getRandomInt(int x, int y){
+        if (x > y) {  // Ensure x is always less than or equal to y
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(y - x + 1) + x;
+        return randomNumber;
+    }
 }
