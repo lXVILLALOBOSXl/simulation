@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/com/maths/DataAnalysisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../C2 Multiple Behaviours LR/com/maths/DataAnalysisUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/APDescription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/APDescription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/out/production/HO3 Agent Based Gradient Descent/OneShotAgent$SimpleLinearRegresion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/out/production/HO3 Agent Based Gradient Descent/OneShotAgent$SimpleLinearRegresion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/out/production/HO3 Agent Based Gradient Descent/RegressionModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/out/production/HO3 Agent Based Gradient Descent/RegressionModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/DataAnalysisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/DataAnalysisUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/OneShotAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/OneShotAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/RegressionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2do Parcial/HO3 Agent Based Gradient Descent/src/RegressionModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="92c9c7c9-61dc-4341-8cba-12ead6e25d29" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
