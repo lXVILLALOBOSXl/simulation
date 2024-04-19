@@ -8,18 +8,24 @@ import java.util.Scanner;
 public class OneShotAgent extends Agent {
   protected void setup() {
     System.out.println("Agent "+ getLocalName() + " started.");
-    addBehaviour(new SimpleLinearRegresion());
+    DataSet dataSet = new DataSet(
+            new double[]{23,26,30,34,43,48,52,57,58},
+            new double[]{651,762,856,1063,1190,1298,1421,1440,1518}
+    );
+    addBehaviour(new SimpleLinearRegresion(dataSet,65));
   } 
 
   private class SimpleLinearRegresion extends OneShotBehaviour {
+    private DataSet dataSet;
+
+    private double toPredict;
+
+    public SimpleLinearRegresion(DataSet dataSet, double toPredict) {
+      this.dataSet = dataSet;
+      this.toPredict = toPredict;
+    }
 
     public void action() {
-      Scanner s = new Scanner(System.in);
-      DataSet dataSet = new DataSet(
-              new double[]{23,26,30,34,43,48,52,57,58},
-              new double[]{651,762,856,1063,1190,1298,1421,1440,1518}
-      );
-
       SLR slr = new SLR(dataSet);
 
       System.out.println(dataSet);
@@ -27,8 +33,7 @@ public class OneShotAgent extends Agent {
       System.out.println("b1: " + slr.getB1());
       System.out.println("Equation: " + slr.getEquation());
       System.out.print("Invest to predict: ");
-      double n = s.nextDouble();
-      System.out.println("Predict for " + n + ": " + slr.predict(n));
+      System.out.println("Predict for " + toPredict + ": " + slr.predict(toPredict));
     }
 
     public int onEnd() {   

@@ -8,6 +8,9 @@ public class DataSet {
 
     private int n;
 
+    public DataSet() {
+    }
+
     public DataSet(double[] x, double[] y) {
         this.x = x;
         this.y = y;

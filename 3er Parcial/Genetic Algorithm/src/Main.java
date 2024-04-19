@@ -9,31 +9,50 @@ import java.util.Scanner;
 public class Main extends Agent {
     protected void setup() {
         System.out.println("Agent "+ getLocalName() + " started.");
-        addBehaviour(new GeneticModel());
+
+        DataSet unitedColorsOfBenettonDS = new DataSet(
+                new double[]{23, 26, 30, 34, 43, 48, 52, 57, 58},
+                new double[]{651, 762, 856, 1063, 1190, 1298, 1421, 1440, 1518}
+        );
+        double[] toPredict = new double[]{65,78,62};
+        addBehaviour(new GeneticModel(100, 0.95, 0.01, 0, unitedColorsOfBenettonDS,toPredict));
     }
 
     private class GeneticModel extends OneShotBehaviour {
 
+        private int populationSize;
+        private double crossoverRate;
+        private double mutationRate;
+        private int elitismCount;
+        private DataSet dataSet;
+
+        double[] toPredict;
+
+        public GeneticModel(int populationSize, double crossoverRate, double mutationRate, int elitismCount, DataSet dataSet,double[] toPredict) {
+            this.populationSize = populationSize;
+            this.crossoverRate = crossoverRate;
+            this.mutationRate = mutationRate;
+            this.elitismCount = elitismCount;
+            this.dataSet = dataSet;
+            this.toPredict = toPredict;
+        }
+
         public void action() {
-            DataSet unitedColorsOfBenettonDS = new DataSet(
-                    new double[]{23, 26, 30, 34, 43, 48, 52, 57, 58},
-                    new double[]{651, 762, 856, 1063, 1190, 1298, 1421, 1440, 1518}
-            );
+
 
             GeneticAlgorithm ga = new GeneticAlgorithm(
-                    100, 0.95, 0.01, 0, unitedColorsOfBenettonDS
+                    populationSize, crossoverRate, mutationRate, elitismCount, dataSet
             );
             RegressionModel ucofbModel = ga.train();
             System.out.println("Equation: " + ucofbModel.toString());
             System.out.println("Determination Coefficient = " + ucofbModel.getDeterminationCoefficient());
             System.out.println("Correlation Coefficient = " + ucofbModel.getCorrelationCoefficient());
 
-            double n = 65;
-            System.out.println("Predict for " + n + ": " + ucofbModel.predict(n));
-            n = 78;
-            System.out.println("Predict for " + n + ": " + ucofbModel.predict(n));
-            n = 82;
-            System.out.println("Predict for " + n + ": " + ucofbModel.predict(n));
+            for (double n :
+                    toPredict) {
+                System.out.println("Predict for " + n + ": " + ucofbModel.predict(n));
+            }
+
         }
 
         public int onEnd() {
