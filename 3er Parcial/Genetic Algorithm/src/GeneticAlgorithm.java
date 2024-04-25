@@ -12,6 +12,7 @@ public class GeneticAlgorithm {
     private double mutationRate;
     private int elitismCount;
     private Population population;
+    private Population recombinedPopulation;
     private DataSet dataSet;
 
     public GeneticAlgorithm(int populationSize, double crossoverRate, double mutationRate, int elitismCount, DataSet dataSet) {
@@ -21,6 +22,8 @@ public class GeneticAlgorithm {
         this.elitismCount = elitismCount;
         this.dataSet = dataSet;
         this.population = new Population(populationSize);  // Assuming population is initialized here
+        this.recombinedPopulation = new Population(populationSize);
+        this.recombinedPopulation.initialize();
     }
 
     public RegressionModel train() {
@@ -32,13 +35,26 @@ public class GeneticAlgorithm {
         for (Chromosome chromosome: this.population.getChromosomes()){
             this.calculateFitness(chromosome);
         }
-        //  Randomly Select Parental Chromosomes
-        Chromosome optimalCandidate = null;
-        do{
-            optimalCandidate = this.selectAndReproduce();
-        }while (optimalCandidate == null);
+        Chromosome selected = null;
+        do {
+            //  Randomly Select Parental Chromosomes
+            Chromosome[] parents = this.select();
+            // Crossover the selected chromosomes to produce offspring
+            Chromosome[] offSpring = this.crossOver(parents[0], parents[1]);
+            // add the offspring to the recombined population
+            this.recombinedPopulation.addChromosome(new Chromosome(offSpring[0].getGenes()));
+            this.recombinedPopulation.addChromosome(new Chromosome(offSpring[1].getGenes()));
+            // Select into the recombined population to mutate
+            selected = this.selectToMutate(this.recombinedPopulation);
+            // Mutate the selected chromosome
+            if (selected != null) {
+                this.mutate(selected);
+            }
+        } while (selected == null || this.calculateFitness(selected) < 0.95 ); // Evaluate the fitness of the mutated chromosome
 
-        return new RegressionModel(optimalCandidate.getGenes(), optimalCandidate.getFitness());
+
+
+        return new RegressionModel(selected.getGenes(), selected.getFitness());
     }
 
     private void initializePopulation() {
@@ -63,61 +79,55 @@ public class GeneticAlgorithm {
         return chromosome.calculateFitness(this.dataSet);
     }
 
-    private Chromosome selectAndReproduce() {
+    private Chromosome[] select() {
         // Implement selection and reproduction process
         Chromosome parent1 = null;
         for (Chromosome chromosome: this.population.getChromosomes()){
             double randomNumber = RandomGenerator.getRandomDouble(0,1);
-            if (randomNumber <= this.crossoverRate){
+            if (randomNumber <= this.crossoverRate && !chromosome.selected){
                 chromosome.selected = true;
                 parent1 = chromosome;
                 break;
             }
         }
         Chromosome parent2 = rouletteWheelSelection();
-        while (parent2 == parent1){
+        while (parent2 == parent1 || parent2.selected){
             parent2 = rouletteWheelSelection();
         }
-        this.crossOver(parent1,parent2);
-        Chromosome offSpring1 = parent1;
-        Chromosome offSpring2 = parent2;
-        this.mutate(offSpring1, offSpring2);
-
-        if(offSpring1.getFitness() > 0.95){
-            return offSpring1;
-        } else if (offSpring2.getFitness() > 0.95) {
-            return offSpring2;
-        }else {
-            offSpring1.selected = false;
-            offSpring2.selected = false;
-            return null;
-        }
-
+        parent2.selected = true;
+        return new Chromosome[]{parent1, parent2};
 
     }
 
-    private void mutate(Chromosome c1, Chromosome c2) {
-        int len = c1.getSize() < c2.getSize() ? c1.getSize() : c2.getSize();
-        int randomIndex = RandomGenerator.getRandomInt(0,len-1);
-        c1.setGen(randomIndex, this.mutateGene( c1.getGen(randomIndex)));
-        c2.setGen(randomIndex, this.mutateGene( c2.getGen(randomIndex)));
+
+
+    private Chromosome selectToMutate(Population populationA) {
+        // Implement mutation process
+        // Get the first chromosome in the population and check if it wasn´t selected
+        for (Chromosome chromosome: populationA.getChromosomes()){
+            //Calculate a random number between 0 and 0.1
+            double randomNumber = RandomGenerator.getRandomDouble(0,0.1);
+            // If the random number is less than the mutation rate and the current chromosome wasn't selected, mutate the chromosome
+            if (randomNumber <= this.mutationRate && !chromosome.selected){
+                return chromosome;
+            }
+        }
+        return null;
     }
 
     // Method to mutate a single gene
-    private double mutateGene(double gene) {
-        // Randomly decide to add or subtract the mutation
-        Random rand = new Random();
-        // Calculate the mutation amount
-        double mutationAmount = gene * this.mutationRate;
-
-        // Randomly decide whether to add or subtract the mutation amount
-        if (rand.nextBoolean()) {
-            gene += mutationAmount;
-        } else {
-            gene -= mutationAmount;
+    private void mutate(Chromosome chromosome){
+        //Calulate a random index to mutate
+        int randomIndex = RandomGenerator.getRandomInt(0,chromosome.getSize()-1);
+        //Calculate a random number to replace the gene
+        double randomNumber = 0;
+        if (randomIndex == 0){
+            randomNumber = RandomGenerator.getRandomDouble(1,200);
+        }else if (randomIndex == 1){
+            randomNumber = RandomGenerator.getRandomDouble(0,50);
         }
-
-        return gene;
+        //Replace the gene
+        chromosome.setGen(randomIndex, randomNumber);
     }
 
     private Chromosome rouletteWheelSelection() {
@@ -145,7 +155,6 @@ public class GeneticAlgorithm {
         // Select the chromosome where the random number falls within its cumulative probability
         for (int i = 0; i < cumulativeProbabilities.size(); i++) {
             if (r <= cumulativeProbabilities.get(i) &&  !chromosomes.get(i).selected) {
-                chromosomes.get(i).selected = true;
                 return chromosomes.get(i);
             }
         }
@@ -155,12 +164,13 @@ public class GeneticAlgorithm {
 
     }
 
-    private void crossOver(Chromosome c1, Chromosome c2){
+    private Chromosome[] crossOver(Chromosome c1, Chromosome c2){
         int len = c1.getSize() < c2.getSize() ? c1.getSize() : c2.getSize();
         int randomIndex = RandomGenerator.getRandomInt(0,len-1);
         double auxGen = c1.getGen(randomIndex);
         c1.setGen(randomIndex, c2.getGen(randomIndex));
         c2.setGen(randomIndex, auxGen);
+        return new Chromosome[]{c1, c2};
     }
 }
 
