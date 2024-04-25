@@ -170,6 +170,8 @@ public class GeneticAlgorithm {
         double auxGen = c1.getGen(randomIndex);
         c1.setGen(randomIndex, c2.getGen(randomIndex));
         c2.setGen(randomIndex, auxGen);
+        c1.selected = false;
+        c2.selected = false;
         return new Chromosome[]{c1, c2};
     }
 }
