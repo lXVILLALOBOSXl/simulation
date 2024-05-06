@@ -2,6 +2,7 @@ package genetic_algorithm;
 
 import data_regress_utils.DataAnalysisUtils;
 import data_regress_utils.DataSet;
+import data_regress_utils.PolynomialRegressionModel;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ public class Chromosome {
 
     public Double calculateFitness(DataSet dataSet) {
         double[] betas = this.genes;
-        this.fitness = DataAnalysisUtils.calculateDeterminationCoefficient(dataSet, betas);
+        this.fitness = PolynomialRegressionModel.calculateDeterminationCoefficient(dataSet, betas);
         return this.fitness;
     }
     public void mutate() {}

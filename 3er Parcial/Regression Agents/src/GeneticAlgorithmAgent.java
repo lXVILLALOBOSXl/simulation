@@ -1,4 +1,5 @@
 import data_regress_utils.DataSet;
+import data_regress_utils.PolynomialRegressionModel;
 import data_regress_utils.RegressionModel;
 import genetic_algorithm.Chromosome;
 import genetic_algorithm.Population;
@@ -24,7 +25,7 @@ public class GeneticAlgorithmAgent extends Agent {
     private int elitismCount = 0;
     private Population population = new Population(populationSize);;
     private Population recombinedPopulation = new Population(populationSize);
-    private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}};
+    private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}, {0.0, 50.0}, {0.0, 50.0}};
     private DataSet dataSet;
 
     protected void setup() {
@@ -66,9 +67,22 @@ public class GeneticAlgorithmAgent extends Agent {
                 try {
                     if (msg.getContentObject() instanceof DataSet) {
                         dataSet = (DataSet) msg.getContentObject();
-                        RegressionModel regressionModel = train();
-                        reply.setPerformative(ACLMessage.PROPOSE);
-                        reply.setContent(regressionModel.getFitness(dataSet).toString());
+                        double[][] xValues = dataSet.getX();
+                        boolean hasMoreThanOneElement = false;
+                        for (double[] x : xValues) {
+                            if (x.length > 1) {
+                                hasMoreThanOneElement = true;
+                                break;
+                            }
+                        }
+                        if (hasMoreThanOneElement) {
+                            reply.setPerformative(ACLMessage.REFUSE);
+                            reply.setContent("unknown-action");
+                        } else {
+                            PolynomialRegressionModel regressionModel = train();
+                            reply.setPerformative(ACLMessage.PROPOSE);
+                            reply.setContent(regressionModel.getFitness(dataSet).toString());
+                        }
                     } else {
                         reply.setPerformative(ACLMessage.REFUSE);
                         reply.setContent("unknown-action");
@@ -134,7 +148,7 @@ public class GeneticAlgorithmAgent extends Agent {
     }
 
 
-    public RegressionModel train() {
+    public PolynomialRegressionModel train() {
         // Implement the main steps of the genetic algorithm
 
         // Randomly generate the initial population of chromosomes (or candidate solutions)
@@ -162,7 +176,7 @@ public class GeneticAlgorithmAgent extends Agent {
 
 
 
-        return new RegressionModel(selected.getGenes(), selected.getFitness());
+        return new PolynomialRegressionModel(selected.getGenes());
     }
 
     private void initializePopulation() {
