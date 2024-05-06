@@ -123,10 +123,16 @@ public class MatrixAgent extends Agent{
         double[][] transformedX = new double[x.length][];
 
         for (int i = 0; i < x.length; i++) {
-            transformedX[i] = new double[grade + 1];
-            transformedX[i][0] = 1; // Add 1 to every array in x
-            for (int j = 1; j <= grade; j++) {
-                transformedX[i][j] = Math.pow(x[i][0], j); // Add the pow functions until n specified
+            if (grade == 1) {
+                transformedX[i] = new double[x[i].length + 1];
+                transformedX[i][0] = 1; // Add 1 to every array in x
+                System.arraycopy(x[i], 0, transformedX[i], 1, x[i].length);
+            }else {
+                transformedX[i] = new double[grade + 1];
+                transformedX[i][0] = 1; // Add 1 to every array in x
+                for (int j = 1; j <= grade; j++) {
+                    transformedX[i][j] = Math.pow(x[i][0], j); // Add the pow functions until n specified
+                }
             }
         }
 

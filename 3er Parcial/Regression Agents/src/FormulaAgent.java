@@ -1,5 +1,4 @@
-import data_regress_utils.DataSet;
-import data_regress_utils.RegressionModel;
+import data_regress_utils.*;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.domain.DFService;
@@ -9,11 +8,12 @@ import jade.domain.FIPAException;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import jade.lang.acl.UnreadableException;
+import formula.DiscreetMath;
 
-public class RegressionBaseAgent extends Agent {
+public class FormulaAgent extends Agent {
     /*
-        * Elements to be used for create the model with the choosed algorithm. EG:
-        *  private double crossoverRate = 0.95;
+     * Elements to be used for create the model with the choosed algorithm. EG:
+     *  private double crossoverRate = 0.95;
      */
     private DataSet dataSet;
 
@@ -25,7 +25,7 @@ public class RegressionBaseAgent extends Agent {
         dfd.setName(getAID());
         ServiceDescription sd = new ServiceDescription();
         sd.setType("regression"); // Name of the service (what solves?)
-        sd.setName("genetic-algorithm"); // Kind of algorithm to be used for the service
+        sd.setName("formula"); // Kind of algorithm to be used for the service
         dfd.addServices(sd);
 
         try {
@@ -35,8 +35,8 @@ public class RegressionBaseAgent extends Agent {
             fe.printStackTrace();
         }
 
-        // addBehaviour(new GeneticAlgorithmAgent.offerRequestsServer()); // Offer service
-        // addBehaviour(new GeneticAlgorithmAgent.modelOrdersServer()); // Accept service
+        addBehaviour(new FormulaAgent.offerRequestsServer()); // Offer service
+        addBehaviour(new FormulaAgent.modelOrdersServer()); // Accept service
     }
 
 
@@ -56,11 +56,22 @@ public class RegressionBaseAgent extends Agent {
                 try {
                     if (msg.getContentObject() instanceof DataSet) {
                         dataSet = (DataSet) msg.getContentObject();
-                        // methods to be used for response. EG:
-                        // RegressionModel regressionModel = train();
-                        reply.setPerformative(ACLMessage.PROPOSE);
-                        // Response for offer request
-                        // reply.setContent(regressionModel.getFitness(dataSet).toString());
+                        double[][] xValues = dataSet.getX();
+                        boolean hasMoreThanOneElement = false;
+                        for (double[] x : xValues) {
+                            if (x.length > 1) {
+                                hasMoreThanOneElement = true;
+                                break;
+                            }
+                        }
+                        if (hasMoreThanOneElement) {
+                            reply.setPerformative(ACLMessage.REFUSE);
+                            reply.setContent("unknown-action");
+                        } else {
+                            SimpleLinearRegression regressionModel = train();
+                            reply.setPerformative(ACLMessage.PROPOSE);
+                            reply.setContent(regressionModel.getFitness(dataSet).toString());
+                        }
                     } else {
                         reply.setPerformative(ACLMessage.REFUSE);
                         reply.setContent("unknown-action");
@@ -90,16 +101,12 @@ public class RegressionBaseAgent extends Agent {
                 ACLMessage reply = msg.createReply();
                 try {
                     if (msg.getContentObject() instanceof DataSet) {
-                        try {
-                            dataSet = (DataSet) msg.getContentObject();
-                        } catch (UnreadableException e) {
-                            e.printStackTrace();
-                        }
+                        dataSet = (DataSet) msg.getContentObject();;
                         // methods to be used for responsed accept. EG:
-                        // RegressionModel regressionModel = train();
+                        SimpleLinearRegression regressionModel = train();
                         reply.setPerformative(ACLMessage.INFORM);
                         // Response for accept request
-                        // reply.setContent(regressionModel.toString());
+                        reply.setContent(regressionModel.toString());
                     } else {
                         reply.setPerformative(ACLMessage.FAILURE);
                         reply.setContent("unknown-action");
@@ -114,4 +121,30 @@ public class RegressionBaseAgent extends Agent {
             }
         }
     }
+
+    private SimpleLinearRegression train() {
+        double b1 = calculateSlope();
+        double b0 = calculateIntersect(b1);
+        double[] betas = new double[]{b0, b1};
+        return new SimpleLinearRegression(betas);
+    }
+    private double calculateIntersect(double b1) { // b0
+        double[] x = new double[dataSet.getN()];
+        int index = 0;
+        for (double[] value : dataSet.getX()) {
+            x[index++] = value[0];
+        }
+        return (DiscreetMath.sum(dataSet.getY()) - (b1 * DiscreetMath.sum(x))) / dataSet.getN();
+    }
+
+    private double calculateSlope() { // b1
+        double[] x = new double[dataSet.getN()];
+        int index = 0;
+        for (double[] value : dataSet.getX()) {
+            x[index++] = value[0];
+        }
+        return ((dataSet.getN() * DiscreetMath.sumMultiplication(x, dataSet.getY())) - (DiscreetMath.sum(x) * DiscreetMath.sum(dataSet.getY()))) / ((dataSet.getN() * DiscreetMath.sumPow(x, 2)) - (Math.pow(DiscreetMath.sum(x), 2)));
+    }
+
+
 }

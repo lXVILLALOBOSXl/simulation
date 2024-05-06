@@ -1,9 +1,7 @@
-package data_regress_utils;
-
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class DataSet implements Serializable {
+public class DataSet  {
     private double x[][];
     private double y[];
 
@@ -34,6 +32,7 @@ public class DataSet implements Serializable {
         }
         return sb.toString();
     }
+
 
     public int getN() {
         return this.y.length;

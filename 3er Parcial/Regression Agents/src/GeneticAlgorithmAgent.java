@@ -25,7 +25,8 @@ public class GeneticAlgorithmAgent extends Agent {
     private int elitismCount = 0;
     private Population population = new Population(populationSize);;
     private Population recombinedPopulation = new Population(populationSize);
-    private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}, {0.0, 50.0}, {0.0, 50.0}};
+    //private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}};
+    private Double[][] ranges = new Double[][]{{0.0, 0.1}, {0.0, 0.1}, {0.0, 2.0}};
     private DataSet dataSet;
 
     protected void setup() {
@@ -233,16 +234,11 @@ public class GeneticAlgorithmAgent extends Agent {
 
     // Method to mutate a single gene
     private void mutate(Chromosome chromosome){
-        //Calulate a random index to mutate
-        int randomIndex = RandomGenerator.getRandomInt(0,chromosome.getSize()-1);
-        //Calculate a random number to replace the gene
-        double randomNumber = 0;
-        if (randomIndex == 0){
-            randomNumber = RandomGenerator.getRandomDouble(1,200);
-        }else if (randomIndex == 1){
-            randomNumber = RandomGenerator.getRandomDouble(0,50);
-        }
-        //Replace the gene
+        // Calculate a random index to mutate
+        int randomIndex = RandomGenerator.getRandomInt(0, chromosome.getSize() - 1);
+        // Calculate a random number within the range for the selected gene
+        double randomNumber = RandomGenerator.getRandomDouble(ranges[randomIndex][0], ranges[randomIndex][1]);
+        // Replace the gene
         chromosome.setGen(randomIndex, randomNumber);
     }
 
