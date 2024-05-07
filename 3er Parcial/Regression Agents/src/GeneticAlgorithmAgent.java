@@ -25,8 +25,8 @@ public class GeneticAlgorithmAgent extends Agent {
     private int elitismCount = 0;
     private Population population = new Population(populationSize);;
     private Population recombinedPopulation = new Population(populationSize);
-    //private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}};
-    private Double[][] ranges = new Double[][]{{0.0, 0.1}, {0.0, 0.1}, {0.0, 2.0}};
+    private Double[][] ranges = new Double[][]{{1.0, 200.0}, {0.0, 50.0}};
+    //private Double[][] ranges = new Double[][]{{0.0, 0.1}, {0.0, 0.1}, {0.0, 2.0}};
     private DataSet dataSet;
 
     protected void setup() {
