@@ -33,7 +33,7 @@ public abstract class RegressionModel {
         return this.determinationCoefficient;
     }
 
-    private static double calculateDeterminationCoefficient(DataSet dataSet, double[] betas) {
+    public static double calculateDeterminationCoefficient(DataSet dataSet, double[] betas) {
         double[][] xValues = dataSet.getX();
         double[] yValues = dataSet.getY();
         double sumOfSquaredErrors = 0.0;

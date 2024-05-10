@@ -39,5 +39,9 @@ public class DataSet implements Serializable {
         return this.y.length;
     }
 
+    public int getNumberOfFeatures() {
+        return x[0].length;
+    }
+
 
 }
