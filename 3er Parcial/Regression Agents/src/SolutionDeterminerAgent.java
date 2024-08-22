@@ -18,9 +18,14 @@ import java.io.Serializable;
 public class SolutionDeterminerAgent extends Agent {
 
     //SLR
-    private DataSet dataSet = new DataSet(
+    /*private DataSet dataSet = new DataSet(
             new double[][]{{23}, {26}, {30}, {34}, {43}, {48}, {52}, {57}, {58}},
             new double[]{651, 762, 856, 1063, 1190, 1298, 1421, 1440, 1518}
+    );*/
+
+    private DataSet dataSet = new DataSet(
+            new double[][]{{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}},
+            new double[]{2,4,6,8,10,12,14,16,18}
     );
 
     //MLR

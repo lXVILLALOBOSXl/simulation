@@ -50,6 +50,7 @@ public class GeneticAlgorithm {
             if (selected != null) {
                 this.mutate(selected);
             }
+            System.out.println(selected);
         } while (selected == null || this.calculateFitness(selected) < 0.95 ); // Evaluate the fitness of the mutated chromosome
 
 
